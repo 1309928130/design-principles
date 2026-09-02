@@ -7,7 +7,7 @@ Interactive gallery of design principles from thesis research on demand-responsi
 | Version | Platform | URL |
 |---------|----------|-----|
 | **Static** (always on) | GitHub Pages | https://1309928130.github.io/design-principles/ |
-| **Dynamic** (Flask) | Render | Connect repo at [render.com](https://render.com) — see below |
+| **Dynamic** (Flask) | Render | https://design-principles.onrender.com/ |
 
 ## Repository structure
 
