@@ -1,0 +1,18 @@
+"filename","description"
+
+"white_line.png","Context & Problems: In some stations, the transfer between different mobilities is effect-consuming. For instance, at Beijing West Railway Station, if a passenger comes out of the metro and wants to go to the railway, he needs to check the ticket out of the metro, go the lengthy paths with level changes, and then check in at the railway with a strict security check, and a ticket check (fig. 32). Therefore, shortcuts in the paths or optimizing paths are needed.
+Solutions & Examples: If there are shortcuts (direct links between the metro and the railway) in the paths (fig. 32), the passenger can save transfer distance and be relieved from double security checks (He already had a security check when he entered the metro system). For example, Beijing South Railway Station (RS), as a counterpart of Beijing West RS, provides direct transfer links between the metro and the railway.
+The shortcuts can be applied during non-peak times for transfer speed, while shut down during peak times for safety (as a lengthy path has more redundant spaces to accommodate the strained passengers, preventing overcrowding).
+Shortcuts in paths are similar to Path regulation for adaptive redundant spaces. Their difference (in this research) is that shortcuts are more for (indoor) buildings, and path regulation is more for outdoor spaces (fig. 15).
+Limitations: However, adding shortcuts means adding extra ingress/egress paths, in which extra electronic systems are needed, hence increasing costs for railway companies. It also adds more complexity for the system and for the users. The well-designed Human-oriented spaces (7) along the normal paths will be missed if passengers choose the shortcuts over the normal paths.
+"
+
+
+
+
+
+
+
+"placeholder1.jpeg","placeholder1"
+
+

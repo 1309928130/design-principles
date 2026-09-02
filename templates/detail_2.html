@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title style="">Design Principle Detail</title>
+<!--    <link rel="icon" href="static/image/favicon.ico" type="image/x-icon">-->
+    <!-- For other formats -->
+    <link rel="icon" href="/static/image/dp_logo.png" type="image/png">
+<!--    <link rel="icon" href="/path-to-your-favicon/favicon.svg" type="image/svg+xml">-->
+
+    <title>Design Principle Detail</title>
     <style>
         body {
             font-family: "Roboto", sans-serif;
@@ -11,6 +16,7 @@
             color: black;
             margin-bottom: 0; /* Remove bottom margin */
             margin-top: 0;
+            text-align: center; /* Center align contents of the body */
         }
 
         body::first-letter {
@@ -20,72 +26,299 @@
 
         .image-container {
             position: relative;
-            display: inline-block; /* Ensure containers wrap properly */
-            flex-wrap: wrap; /* Allow wrapping of items */
-            margin-top: 20px;
-
+<!--            margin-top: 20px;-->
+            text-align: center; /* Center align contents */
+            width: 100%; /* Ensure each container takes full width */
+<!--            border: 1px solid red; /* Add border for visualization */-->
+<!--            padding: 10px; /* Add padding for spacing */-->
+            box-sizing: border-box; /* Include padding in width calculation */
+            margin-bottom: 40px;
         }
 
-        .image-container img {
-            max-width: 100%;
-            height: auto;
+        .image-wrapper {
+            position: relative;
         }
 
         .description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%; /* Make the description span the full width of the container */
-            text-align: center;
-    padding: 10px; /* Add padding for better readability */
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: Add background color */
-    box-sizing: border-box; /* Include padding in width calculation */
-
-            margin-bottom: 0; /* Remove bottom margin */
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: Add background color */
+            padding: 10px; /* Add padding for better readability */
             font-style: normal; /* Style the description text */
-
             color: black; /* Set color for the description text */
+            text-align: left; /* Align description text to the left */
+<!--            width: 100%;-->
+            margin-top: 10px; /* Adjust top margin for spacing */
         }
 
-.main-image {
-    width: auto;
-    height: 70vh;
-    margin: 1px;
+        .background_description {
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: Add background color */
+            padding: 10px; /* Add padding for better readability */
+            font-style: normal; /* Style the description text */
+            color: black; /* Set color for the description text */
+            text-align: left; /* Align description text to the left */
+            width: 100%;
+            margin-top: 10px; /* Adjust top margin for spacing */
+        }
 
-}
+        .main-image {
+            width: 100%;
+            height: auto;
+            margin: 10px 0; /* Adjust margin around the main image */
+        }
 
-.detail-image {
-    width: auto;
-    max-height: 50vh;
-    margin: 1px;
-}
+        .detail-image {
+            width: 100%;
+            max-height: auto;
+<!--            margin-top: 10px; /* Adjust margin above each detail image */-->
+        }
 
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .image-container, .main-image, .background_description {
+                width: 60%; /* Set width to 60% for larger screens */
+                margin: 0 auto; /* Center the container */
+            }
+        }
     </style>
-
 </head>
+
 <body>
     <h1>{{ principle['design_principle_name'] }}</h1>
-    <!-- Add more details here -->
-    <!-- <img src="{{ url_for('static', filename=principle['picture_location']) }}" alt="Picture"> -->
+
     <img src="{{ url_for('static', filename=principle['picture_location']) }}" alt="Picture" class="main-image">
 
-    <!-- Display the full-size image of the design principle -->
-    <p>Source of heuristics: <strong>{{ principle['Source of heuristics'] }}</strong></p>
-
-    <!-- Loop through the list of image filenames and generate <img> tags for each -->
+    <!-- Check if there are image descriptions to display -->
     {% if image_descriptions %}
-        {% for image, description in image_descriptions.items() %}
-            {% if not image.startswith('.DS_Store') %}
-                <!-- Image container with description -->
-                <div class="image-container">
-                    <!-- Display the image -->
-                    <img src="/static/image/{{ principle['detail_pictures_folder'] }}/{{ image }}" alt="Detail Picture" class="detail-image">
-                    <!-- Display the description -->
-                    <p class="description">{{ description }}</p>
-                </div>
-            {% endif %}
-        {% endfor %}
+        <div class="image-gallery">
+            {% for image, description in image_descriptions.items() %}
+                {% if not image.startswith('.DS_Store') %}
+                    <!-- Image container with description -->
+                    <div class="image-container">
+                        <!-- Display the image -->
+                        <div class="image-wrapper">
+                            <img src="/static/image/{{ principle['detail_pictures_folder'] }}/{{ image }}" alt="Detail Picture" class="detail-image">
+                        </div>
+                        <!-- Display the description -->
+                        <div class="description">
+                            <!-- Split description into paragraphs -->
+                            {% for paragraph in description.split('\n') %}
+                                <p>{{ paragraph }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     {% endif %}
+
+
+    <p class="background_description">Source of heuristics: <strong>{{ principle['Source of heuristics'] }}</strong></p>
+
+
+
+<!-- Disqus Thread Container -->
+<div id="disqus_thread"></div>
+<!-- Disqus Embed Script -->
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // Set the page URL dynamically
+        this.page.identifier = window.location.pathname; // Set a unique identifier for the page
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://designprinciples.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//designprinciples.disqus.com/count.js" async></script>
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;下面是基于latex渲染的&ndash;&gt;-->
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Design Principle Detail</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: "Roboto", sans-serif;-->
+<!--            font-weight: 400;-->
+<!--            font-style: normal;-->
+<!--            font-size: 20px;-->
+<!--            color: black;-->
+<!--            margin-bottom: 0;-->
+<!--            margin-top: 0;-->
+<!--        }-->
+
+<!--        body::first-letter {-->
+<!--            text-transform: uppercase;-->
+<!--        }-->
+
+<!--        .image-container {-->
+<!--            position: relative;-->
+<!--            text-align: center;-->
+<!--            width: 100%;-->
+<!--            box-sizing: border-box;-->
+<!--            margin-bottom: 40px;-->
+<!--        }-->
+
+<!--        .image-wrapper {-->
+<!--            position: relative;-->
+<!--        }-->
+
+<!--        .description {-->
+<!--            background-color: rgba(255, 255, 255, 0.8);-->
+<!--            padding: 10px;-->
+<!--            font-style: normal;-->
+<!--            color: black;-->
+<!--            text-align: left;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+
+<!--        .main-image {-->
+<!--            width: 100%;-->
+<!--            height: auto;-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+
+<!--        .detail-image {-->
+<!--            width: 100%;-->
+<!--            max-height: auto;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <h1>{{ principle['design_principle_name'] }}</h1>-->
+
+<!--    <img src="{{ url_for('static', filename=principle['picture_location']) }}" alt="Picture" class="main-image">-->
+
+<!--    <div class="description">-->
+<!--        {{ principle_description | safe }}-->
+<!--    </div>-->
+
+<!--    <div class="image-gallery">-->
+<!--        {% for image in image_files %}-->
+<!--            <div class="image-container">-->
+<!--                <div class="image-wrapper">-->
+<!--                    <img src="{{ url_for('static', filename='image/' + image) }}" alt="Detail Picture" class="detail-image">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
+
+<!--    <p>Source of heuristics: <strong>{{ principle['Source of heuristics'] }}</strong></p>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+
+<!--&lt;!&ndash;# 以下是基于合并的csv编写的&ndash;&gt;-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Design Principle Detail</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: "Roboto", sans-serif;-->
+<!--            font-weight: 400;-->
+<!--            font-style: normal;-->
+<!--            font-size: 20px;-->
+<!--            color: black;-->
+<!--            margin-bottom: 0;-->
+<!--            margin-top: 0;-->
+<!--        }-->
+
+<!--        body::first-letter {-->
+<!--            text-transform: uppercase;-->
+<!--        }-->
+
+<!--        .image-container {-->
+<!--            position: relative;-->
+<!--            text-align: center;-->
+<!--            width: 100%;-->
+<!--            box-sizing: border-box;-->
+<!--            margin-bottom: 40px;-->
+<!--        }-->
+
+<!--        .image-wrapper {-->
+<!--            position: relative;-->
+<!--        }-->
+
+<!--        .description {-->
+<!--            background-color: rgba(255, 255, 255, 0.8);-->
+<!--            padding: 10px;-->
+<!--            font-style: normal;-->
+<!--            color: black;-->
+<!--            text-align: left;-->
+<!--            margin-top: 10px;-->
+<!--        }-->
+
+<!--        .main-image {-->
+<!--            width: 100%;-->
+<!--            height: auto;-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+
+<!--        .detail-image {-->
+<!--            width: 100%;-->
+<!--            max-height: auto;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    <h1>{{ principle_name }}</h1>-->
+
+<!--    <img src="{{ url_for('static', filename=principle['picture_location']) }}" alt="Picture" class="main-image">-->
+
+<!--    &lt;!&ndash; Check if there are image files to display &ndash;&gt;-->
+<!--    {% if image_files %}-->
+<!--        <div class="image-gallery">-->
+<!--            {% for image_file in image_files %}-->
+<!--                &lt;!&ndash; Image container with description &ndash;&gt;-->
+<!--                <div class="image-container">-->
+<!--                    &lt;!&ndash; Display the image &ndash;&gt;-->
+<!--                    <div class="image-wrapper">-->
+<!--                        <img src="{{ url_for('static', filename=image_file) }}" alt="Detail Picture" class="detail-image">-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash; Display the description (if available) &ndash;&gt;-->
+<!--                    <div class="description">-->
+<!--                        &lt;!&ndash; Split description into paragraphs if needed &ndash;&gt;-->
+<!--                        &lt;!&ndash; Example: &ndash;&gt;-->
+<!--                        <p>Description for {{ image_file }}</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    {% endif %}-->
+
+<!--    &lt;!&ndash; Display principle description &ndash;&gt;-->
+<!--    <p>{{ principle_description }}</p>-->
+
+<!--    &lt;!&ndash; Display other details from data &ndash;&gt;-->
+<!--    <p>Source of heuristics: <strong>{{ principle['Source of heuristics'] }}</strong></p>-->
+
+<!--</body>-->
+<!--</html>-->
+

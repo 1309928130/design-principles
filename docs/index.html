@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="static/image/dp_logo.png" type="image/png">
+  <title>Design Principles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;1000&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; }
+    .main-heading {
+      text-align: center;
+      font-family: "Roboto", sans-serif;
+      font-weight: 100;
+      font-size: 50px;
+      color: black;
+      margin: 10px 0;
+    }
+    .dropdown-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+    .dropdown-label {
+      font-family: "Roboto", sans-serif;
+      font-size: 25px;
+    }
+    .dropdown-menu {
+      border: 1px solid #000;
+      border-radius: 25px;
+      font-family: "Roboto", sans-serif;
+      font-size: 25px;
+      font-weight: 1000;
+      text-align: center;
+      padding: 4px 12px;
+    }
+    .principles-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-left: 30px;
+    }
+    .principles-row { display: flex; flex-wrap: wrap; }
+    .principle {
+      position: relative;
+      cursor: pointer;
+      z-index: 1;
+      margin: 5px;
+    }
+    .principle img {
+      width: 210px;
+      height: 140px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+    .principle:hover { z-index: 2; }
+    .principle:hover img { transform: scale(1.5); z-index: 3; }
+    .tooltip {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      visibility: hidden;
+      width: 500px;
+      color: black;
+      font-family: "Roboto", sans-serif;
+      font-size: 20px;
+      font-weight: 1000;
+      text-align: center;
+      text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+      z-index: 3;
+    }
+    .principle:hover .tooltip { visibility: visible; }
+    .row-container { display: block; flex-basis: 100%; }
+    .row-title {
+      display: block;
+      flex-basis: 100%;
+      margin-top: 20px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 1000;
+      font-size: 25px;
+    }
+    .index-number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.7);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-family: "Roboto", sans-serif;
+      font-size: 50px;
+      font-weight: 100;
+      text-align: center;
+      line-height: 60px;
+      color: black;
+    }
+    .principle:hover .index-number { opacity: 0; }
+    .special-content img { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    .special-content { padding: 0 20px 40px; }
+  </style>
+</head>
+<body>
+  <h1 class="main-heading">Design Principles for Fluctuation-Responsive Station Areas</h1>
+  <div class="dropdown-container">
+    <span class="dropdown-label">Perspective ➭</span>
+    <select id="dimensionSelect" class="dropdown-menu">
+      <option value="">All</option>
+      <option value="Patterns in a Network">Patterns in a Network</option>
+      <option value="Related to an Event Typology">Related to an Event Typology</option>
+      <option value="Source of heuristics">Source of heuristics</option>
+<option value="Paradigm">Paradigm</option>
+<option value="District vs Building">District vs Building</option>
+<option value="Outdoor vs Indoor">Outdoor vs Indoor</option>
+<option value="Overcrowding vs Emptiness">Overcrowding vs Emptiness</option>
+<option value="Pitfall">Pitfall</option>
+<option value="Limitations">Limitations</option>
+<option value="Fixed vs Flexible">Fixed vs Flexible</option>
+<option value="Element vs Layout">Element vs Layout</option>
+<option value="Spatial vs Managerial">Spatial vs Managerial</option>
+<option value="Form vs Function">Form vs Function</option>
+<option value="(Other) Themes">(Other) Themes</option>
+    </select>
+  </div>
+  <div class="principles-container" id="principles-container"></div>
+
+  <template id="event-typology-template">
+
+
+<style>
+  .roboto-thin {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>
+
+<div class="description roboto-thin">
+    <div class="description">
+        <h2>Relate design principles to an event typology</h2>
+
+        <p>Events are an important aspect of this research, as they are the causes of fluctuations in station areas and are a solution to solve emptiness. As part of the exploration of design solutions, we investigated the relationship between event types and design principles.</p>
+
+        <!-- Define colors using HTML model -->
+        <style>
+            .color1 { color: #DBC096; }
+            .color2 { color: #B99205; }
+            .color3 { color: #414BB2; }
+            .color4 { color: #8FD14F; }
+            .color5 { color: #78AE7B; }
+            .color6 { color: #32BF1E; }
+            .color7 { color: #CEE741; }
+            .color8 { color: #EE9548; }
+            .color9 { color: #FAC710; }
+            .color10 { color: #D20A0A; }
+            .teal { color: teal; }
+            .black-text { color: black; }
+        </style>
+
+        <p>In this research, we adopted an event typology developed by <cite>Smith (2021)</cite>. This typology is framed based on access and mobility, including nine types of events: E1) large indoor arenas, E2) concerts and screenings, E3) pleasure gardens, E4) parades and street races, E5) roadshows, E6) markets and fairs, E7) mass gatherings, E8) micro-performances, and E9) marches and street parties. Two events - E4 and E9, primarily happen on streets, which are irrelevant for most spaces in railway stations, so we excluded (<strong>×</strong>) them (fig. <a href="#fig:eventtypology_principles" class="black-text">eventtypology_principles</a>).</p>
+
+        <ul>
+            <li>Large open-air events with concentrated distributions, including E2, E3, and E7, need large coherent outdoor spaces and should not block city passages. Therefore, these events have relevance to design principles (DPs)
+                <a href="#dp11" class="black-text">(11) Adaptive redundant spaces with path regulation</a>,
+                <a href="#dp7" class="black-text">(7) Human-oriented spaces</a>, and
+                <a href="#dp20" class="black-text">(20 21) City passages and their positioning</a>.
+                (Links: <span class="black-text">E2-D7, E3-D7, E6-D7; E7-D7; E2-D11, E3-D11, E6-D11, E7-D11; E2-D21, E3-D21, E6-D21, E7-D21)
+            </li>
+
+            <li>For large events with performances - E2,
+                <a href="#dp24" class="black-text">(24) Stairs as stages or seats</a> can be used.
+                (Link: <span class="color6">E2-D24</span>)
+            </li>
+
+            <li>Small spaces are common in a scattered layout (<a href="#dp4" class="black-text">D4</a>), and small events - E8 can be held in these small spaces.
+                <a href="#dp15" class="black-text">(15) Flexible building components</a> can also be the small spaces to hold small events.
+                (Links: <span class="color7">E8-D4, E8-D15</span>)
+            </li>
+
+            <li>For events that require user participation and are open-access, including E7, E5, E6, and E8, it is necessary to
+                <a href="#dp6" class="black-text">(6) Make events visible by aligning main paths and open spaces</a>.
+                (Links: <span class="color2">E7-D6, E5-D6, E6-D6, E8-D6</span>)
+            </li>
+
+            <li>Small performances and markets can help promote a vibrant environment, and it is a prerequisite to
+                <a href="#dp23" class="black-text">(23) Reduce barriers to ease flow at the building level</a>.
+                (Links: <span class="color5">E6-D23, E8-D23</span>)
+            </li>
+
+            <li>Large indoor arenas can be
+                <a href="#dp14" class="black-text">Flexible buildings (14)</a>. Flexible and Shared use between arenas and stations can be realized if the station areas are
+                <a href="#dp12" class="black-text">(12) Programmed considering the time dimension</a>.
+                The arenas should be located in
+                <a href="#dp2" class="black-text">Suitable general layouts of the station and city (2)</a>.
+                (Links: <span class="color4">E1-D2, E1-D14, E1-D12</span>)
+            </li>
+
+            <li>In events E3 and E6, it is necessary to
+                <a href="#dp16" class="black-text">(16) Add installations and facilities</a>, which can be
+                <a href="#dp17" class="black-text">(17) Reconfigurable elements</a>.
+                (Links: <span class="color8">E3-D11, E6-D11; E3-D16</span>)
+            </li>
+
+            <li>For all possible events happening in railway stations, the event spaces should support flexible use and be configurable, and pedestrians should be able to walk smoothly to the event spots. Therefore, several design principles are relevant, including
+                <a href="#dp22" class="black-text">(22 23) Reduce barriers to ease flow at the district level</a>,
+                <a href="#dp25" class="black-text">(25) City axes</a>,
+                <a href="#dp1" class="black-text">(1) Flexible use</a>,
+                <a href="#dp26" class="black-text">(26) Reconfigurable spaces</a>.
+                (Links: <span class="color9">All-D25, All-D22, All-D26, All-D1</span>)
+            </li>
+        </ul>
+    </div>
+</div></template>
+
+  <script id="principles-data" type="application/json">{"principles": [{"real index": "27", "index": "1", "design_principle_name": "Flexible use", "Source of heuristics": "Literature + Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Indoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "(No relevance from this perspective)", "Spatial vs Managerial": "Spatial", "Form vs Function": "Function", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.027.jpeg", "detail_pictures_folder": "27", "_idx": 0}, {"real index": "20", "index": "2", "design_principle_name": "Suitable general layouts of the station and city", "Source of heuristics": "Literature + Cases", "Paradigm": "Human-centered / Car-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "(Depend on the context)", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.020.jpeg", "detail_pictures_folder": "20", "_idx": 1}, {"real index": "16", "index": "3", "design_principle_name": "Set apart non-transport function", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding", "Pitfall": "mono-use", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.016.jpeg", "detail_pictures_folder": "16", "_idx": 2}, {"real index": "17", "index": "4", "design_principle_name": "Vibrate city environment by scattered mobility nodes", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "Complicate wayfinding/Longer transfer distance", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Scattered layout", "picture_location": "image/index_pictures/index_pictures.017.jpeg", "detail_pictures_folder": "17", "_idx": 3}, {"real index": "14", "index": "5", "design_principle_name": "Increase accommodating capacity by scattered mobility nodes", "Source of heuristics": "Cases (+ Simulation)", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding", "Pitfall": "Complicate wayfinding", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Scattered layout", "picture_location": "image/index_pictures/index_pictures.014.jpeg", "detail_pictures_folder": "14", "_idx": 4}, {"real index": "1", "index": "6", "design_principle_name": "Make events visible by aligning main paths and open spaces", "Source of heuristics": "Cases + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Supportive for flexible interventions/Different levels of Flexibility", "picture_location": "image/index_pictures/index_pictures.001.jpeg", "detail_pictures_folder": "1", "_idx": 5}, {"real index": "2", "index": "7", "design_principle_name": "Human-oriented spaces", "Source of heuristics": "Cases + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Supportive for flexible interventions/Different levels of Flexibility", "picture_location": "image/index_pictures/index_pictures.002.jpeg", "detail_pictures_folder": "2", "_idx": 6}, {"real index": "10", "index": "8", "design_principle_name": "Connect with neighborhoods", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Bottleneck-related", "picture_location": "image/index_pictures/index_pictures.010.jpeg", "detail_pictures_folder": "10", "_idx": 7}, {"real index": "7", "index": "9", "design_principle_name": "Smooth level changes by landscape design (District level)", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Reduce level change by landscape design", "picture_location": "image/index_pictures/index_pictures.007.jpeg", "detail_pictures_folder": "7", "_idx": 8}, {"real index": "22", "index": "10", "design_principle_name": "Smooth level changes by landscape design (Building level)", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Indoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Reduce level change by landscape design", "picture_location": "image/index_pictures/index_pictures.022.jpeg", "detail_pictures_folder": "22", "_idx": 9}, {"real index": "12", "index": "11", "design_principle_name": "Adaptive redundant spaces with path regulation", "Source of heuristics": "Cases + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed + Flexible", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial + Managerial", "Form vs Function": "Form", "(Other) Themes": "Related to Redundant space", "picture_location": "image/index_pictures/index_pictures.012.jpeg", "detail_pictures_folder": "12", "_idx": 10}, {"real index": "18", "index": "12", "design_principle_name": "Programming considering the time dimension", "Source of heuristics": "Literature + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Flexible", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial + Managerial", "Form vs Function": "Form", "(Other) Themes": "Different levels of Flexibility/Related to Redundant space", "picture_location": "image/index_pictures/index_pictures.018.jpeg", "detail_pictures_folder": "18", "_idx": 11}, {"real index": "6", "index": "13", "design_principle_name": "Shortcuts or optimizing paths", "Source of heuristics": "Cases + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Indoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "Regulations of security check", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.006.jpeg", "detail_pictures_folder": "6", "_idx": 12}, {"real index": "8", "index": "14", "design_principle_name": "Flexible buildings", "Source of heuristics": "Literature + Cases + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "High cost", "Fixed vs Flexible": "Fixed + Flexible", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial + Managerial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.008.jpeg", "detail_pictures_folder": "8", "_idx": 13}, {"real index": "24", "index": "15", "design_principle_name": "Flexible building components", "Source of heuristics": "Research-by-design", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Indoor", "Overcrowding vs Emptiness": "Reduce Overcrowding", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Flexible", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.024.jpeg", "detail_pictures_folder": "24", "_idx": 14}, {"real index": "3", "index": "16", "design_principle_name": "Add installations and facilities", "Source of heuristics": "Literature + Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Flexible", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial + Managerial", "Form vs Function": "Form", "(Other) Themes": "Different levels of Flexibility", "picture_location": "image/index_pictures/index_pictures.003.jpeg", "detail_pictures_folder": "3", "_idx": 15}, {"real index": "4", "index": "17", "design_principle_name": "Reconfigurable elements", "Source of heuristics": "Literature", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed + Flexible", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial + Managerial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.004.jpeg", "detail_pictures_folder": "4", "_idx": 16}, {"real index": "11", "index": "18", "design_principle_name": "Redundant spaces", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding", "Pitfall": "Increase emptiness", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Related to Redundant space", "picture_location": "image/index_pictures/index_pictures.011.jpeg", "detail_pictures_folder": "11", "_idx": 17}, {"real index": "15", "index": "19", "design_principle_name": "Setting apart bottlenecks", "Source of heuristics": "Literature", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Indoor", "Overcrowding vs Emptiness": "Reduce Overcrowding", "Pitfall": "Increase emptiness", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Bottleneck-related", "picture_location": "image/index_pictures/index_pictures.015.jpeg", "detail_pictures_folder": "15", "_idx": 18}, {"real index": "13", "index": "20", "design_principle_name": "City passages", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "City passage", "picture_location": "image/index_pictures/index_pictures.013.jpeg", "detail_pictures_folder": "13", "_idx": 19}, {"real index": "23", "index": "21", "design_principle_name": "Position city passages", "Source of heuristics": "Cases + Research-by-design", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "City passage", "picture_location": "image/index_pictures/index_pictures.023.jpeg", "detail_pictures_folder": "23", "_idx": 20}, {"real index": "9", "index": "22", "design_principle_name": "Reduce barriers to ease flow (District level)", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Bottleneck-related", "picture_location": "image/index_pictures/index_pictures.009.jpeg", "detail_pictures_folder": "9", "_idx": 21}, {"real index": "21", "index": "23", "design_principle_name": "Reduce barriers to ease flow (Building level)", "Source of heuristics": "Research-by-design", "Paradigm": "Human-centered", "District vs Building": "Building-level", "Outdoor vs Indoor": "Indoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "Bottleneck-related", "picture_location": "image/index_pictures/index_pictures.021.jpeg", "detail_pictures_folder": "21", "_idx": 22}, {"real index": "5", "index": "24", "design_principle_name": "Stairs as stages or seats", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Element", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.005.jpeg", "detail_pictures_folder": "5", "_idx": 23}, {"real index": "25", "index": "25", "design_principle_name": "City axes", "Source of heuristics": "Cases", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "(Not yet known)", "Fixed vs Flexible": "Fixed", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.025.jpeg", "detail_pictures_folder": "25", "_idx": 24}, {"real index": "26", "index": "26", "design_principle_name": "Reconfigurable spaces", "Source of heuristics": "Literature", "Paradigm": "Human-centered", "District vs Building": "District-level", "Outdoor vs Indoor": "Outdoor", "Overcrowding vs Emptiness": "Reduce Overcrowding + Reduce Emptiness", "Pitfall": "(Not yet known)", "Limitations": "Manegerial cost", "Fixed vs Flexible": "Flexible", "Element vs Layout": "Layout", "Spatial vs Managerial": "Spatial + Managerial", "Form vs Function": "Form", "(Other) Themes": "(Not relevant from this perspective)", "picture_location": "image/index_pictures/index_pictures.026.jpeg", "detail_pictures_folder": "26", "_idx": 25}], "dimensions": ["Source of heuristics", "Paradigm", "District vs Building", "Outdoor vs Indoor", "Overcrowding vs Emptiness", "Pitfall", "Limitations", "Fixed vs Flexible", "Element vs Layout", "Spatial vs Managerial", "Form vs Function", "(Other) Themes"]}</script>
+  <script>
+    const { principles, dimensions } = JSON.parse(document.getElementById('principles-data').textContent);
+
+    function principleCard(row) {
+      const idx = row._idx;
+      return `
+        <div class="principle">
+          <a href="detail/${idx}.html" target="_blank">
+            <span class="index-number">${row.index}</span>
+            <img src="static/${row.picture_location}" alt="Picture">
+            <div class="tooltip"><p>${row.design_principle_name}</p></div>
+          </a>
+        </div>`;
+    }
+
+    function renderAll() {
+      const container = document.getElementById('principles-container');
+      container.innerHTML = principles.map(principleCard).join('');
+    }
+
+    function renderGrouped(dimension) {
+      const container = document.getElementById('principles-container');
+      const groups = new Map();
+      principles.forEach((row) => {
+        const key = row[dimension] || '(empty)';
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(row);
+      });
+      container.innerHTML = [...groups.entries()].map(([title, rows]) => `
+        <div class="row-container">
+          <div class="row-title">${title}</div>
+          <div class="principles-row">${rows.map(principleCard).join('')}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderThemes() {
+      const container = document.getElementById('principles-container');
+      const themes = new Set();
+      principles.forEach((row) => {
+        (row['(Other) Themes'] || '').split('/').forEach((theme) => {
+          const trimmed = theme.trim();
+          if (trimmed) themes.add(trimmed);
+        });
+      });
+      const html = [...themes].sort().map((theme) => {
+        const rows = principles.filter((row) => (row['(Other) Themes'] || '').includes(theme));
+        return `
+          <div class="row-container">
+            <div class="row-title">${theme}</div>
+            <div class="principles-row">${rows.map(principleCard).join('')}</div>
+          </div>`;
+      }).join('');
+      container.innerHTML = html;
+    }
+
+    function renderPatterns() {
+      document.getElementById('principles-container').innerHTML = `
+        <div class="special-content">
+          <img src="static/Pattern_Network_8M.png" alt="Patterns in a Network">
+        </div>`;
+    }
+
+    function renderEventTypology() {
+      const template = document.getElementById('event-typology-template');
+      document.getElementById('principles-container').innerHTML = `
+        <div class="special-content">
+          <img src="static/event_principles.png" alt="Event Principles Image">
+          ${template.innerHTML}
+        </div>`;
+    }
+
+    function renderDimension(value) {
+      if (!value || value === 'All') return renderAll();
+      if (value === 'Patterns in a Network') return renderPatterns();
+      if (value === 'Related to an Event Typology') return renderEventTypology();
+      if (value === '(Other) Themes') return renderThemes();
+      return renderGrouped(value);
+    }
+
+    document.getElementById('dimensionSelect').addEventListener('change', (event) => {
+      renderDimension(event.target.value);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const selected = params.get('dimension') || '';
+    if (selected) {
+      document.getElementById('dimensionSelect').value = selected;
+    }
+    renderDimension(selected);
+  </script>
+</body>
+</html>

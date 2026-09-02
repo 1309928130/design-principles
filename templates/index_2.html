@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
+
+
+
 <head>
+<!--    <link rel="icon" href="static/image/favicon.ico" type="image/x-icon">-->
+    <!-- For other formats -->
+    <link rel="icon" href="/static/image/dp_logo.png" type="image/png">
+<!--    <link rel="icon" href="/path-to-your-favicon/favicon.svg" type="image/svg+xml">-->
+
+
     <title>Design Principles</title>
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -175,7 +184,7 @@
 
 
 <body>
-    <h1 class="main-heading">Design Principles for Demand-Responsive Station Areas</h1>
+    <h1 class="main-heading">Design Principles for Fluctuation-Responsive Station Areas</h1>
 
     <!-- Container for the label and dropdown -->
     <div class="dropdown-container">
@@ -185,12 +194,16 @@
         <!-- Dropdown menu for selecting dimensions -->
         <select id="dimensionSelect" class="dropdown-menu">
             <option value="">All</option>
+            <option value="Patterns in a Network">Patterns in a Network</option> <!-- New option added here -->
+            <option value="Related to an Event Typology">Related to an Event Typology</option> <!-- New option added here -->
+
             {% for col in data.columns %}
                 {% if col not in ['real index', 'index', 'picture_location', 'design_principle_name', 'detail_pictures_folder'] %}
                     <option value="{{ col }}" {% if selected_dimension == col %}selected{% endif %}>{{ col }}</option>
                 {% endif %}
             {% endfor %}
         </select>
+
     </div>
 
 
@@ -235,26 +248,123 @@
 
 
 
+
 <script>
-    document.getElementById('dimensionSelect').addEventListener('change', function() {
-        var dimension = this.value;
-        if (dimension === '(Other) Themes') {
-            // Store the selected dimension in session storage
-            sessionStorage.setItem('selectedDimension', dimension);
 
-            // Call a function to fetch available themes and filter design principles
-            fetchThemesAndFilter();
-        } else if (dimension === 'All') {
-            // Clear the session storage for selected dimension
-            sessionStorage.removeItem('selectedDimension');
 
-            // Update the URL to reflect the selected dimension
-            window.location.href = '/?dimension=' + 'All';
-        } else {
-            // Update the URL to reflect the selected dimension
-            window.location.href = '/?dimension=' + (dimension ? dimension : 'All');
-        }
-    });
+
+
+document.getElementById('dimensionSelect').addEventListener('change', function() {
+    var dimension = this.value;
+    var principlesContainer = document.getElementById('principles-container');
+
+    // Clear any existing content in the principles container
+    principlesContainer.innerHTML = '';
+
+    if (dimension === '(Other) Themes') {
+        // Store the selected dimension in session storage
+        sessionStorage.setItem('selectedDimension', dimension);
+
+        // Call a function to fetch available themes and filter design principles
+        fetchThemesAndFilter();
+
+/*
+    } else if (dimension === 'Patterns in a Network') {
+        // Redirect to the PDF file
+        window.location.href = '/static/Pattern_Network_8M.pdf';
+*/
+
+    }else if (dimension === 'Patterns in a Network') {
+
+        // Create an img element
+        var img = document.createElement('img');
+        img.src = '/static/Pattern_Network_8M.png';
+        img.alt = 'Patterns in a Network';
+        img.style.maxWidth = '100%'; // Ensure the image fits within its container
+
+        // Define the description
+        var description = '<a>(Description undefined1)</a>';
+
+
+        // Append the image and description to the principles container
+        var principlesContainer = document.getElementById('principles-container');
+        principlesContainer.appendChild(img);
+        principlesContainer.insertAdjacentHTML('beforeend', description);
+
+
+
+
+
+
+
+
+} else if (dimension === 'Related to an Event Typology') {
+    // Display image and description for event typology
+    displayEventTypologyContent();
+
+
+
+}else if (dimension === 'All') {
+        // Clear the session storage for selected dimension
+        sessionStorage.removeItem('selectedDimension');
+
+        // Update the URL to reflect the selected dimension
+        window.location.href = '/?dimension=' + 'All';
+    } else {
+        // Update the URL to reflect the selected dimension
+        window.location.href = '/?dimension=' + (dimension ? dimension : 'All');
+    }
+});
+
+
+
+// Function to display the event typology content
+function displayEventTypologyContent() {
+    // Clear the existing content before appending new content
+    document.getElementById('principles-container').innerHTML = '';
+
+    // Create an image element
+    var img = document.createElement('img');
+    img.src = '/static/event_principles.png';
+    img.alt = 'Event Principles Image';
+    img.style.maxWidth = '100%'; // Ensure the image fits within its container
+
+    // Append the image to the principles container
+    document.getElementById('principles-container').appendChild(img);
+
+
+
+    // Fetch the external HTML content and insert it into the container
+    fetch('/event_typology')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('principles-container').insertAdjacentHTML('beforeend', html);
+        })
+        .catch(error => {
+            console.error('Error loading event typology content:', error);
+        });
+
+
+    // Append the image and description to the principles container
+    document.getElementById('principles-container').appendChild(img);
+    document.getElementById('principles-container').insertAdjacentHTML('beforeend', description);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Function to fetch available themes and filter design principles
     function fetchThemesAndFilter() {
@@ -273,6 +383,8 @@
         })
         .catch(error => console.error('Error:', error));
     }
+
+
 
     // Function to filter design principles by theme
     function filterByTheme(theme) {
@@ -352,7 +464,49 @@ function sortContainers() {
         sortContainers();
     };
 
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Disqus Thread Container -->
+<div id="disqus_thread"></div>
+<!-- Disqus Embed Script -->
+<script>
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // Set the page URL dynamically
+        this.page.identifier = window.location.pathname; // Set a unique identifier for the page
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://designprinciples.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//designprinciples.disqus.com/count.js" async></script>
+
+
+
+
 
 
 </body>

@@ -5,38 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d1245ef-6cd3-4401-8145-654f28c35caf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/image/22/2024Meeting.014.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/22/2024Meeting.015.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/22/2024Meeting.016.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/23/2024Meeting.014.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/23/2024Meeting.015.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/23/2024Meeting.016.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/themes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR_sankey_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LR_sankey_data_links.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design_principles_coding.csv" beforeDir="false" afterPath="$PROJECT_DIR$/design_principles_coding.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.001.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.002.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.003.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.004.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.005.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.006.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.007.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.008.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.009.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.010.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.011.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.012.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.013.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.014.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.015.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/image/2024Meeting.016.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detail_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detail_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.006.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.006.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.014.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.014.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.015.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.015.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.020.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/static/image/index_pictures/index_pictures.020.jpeg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
