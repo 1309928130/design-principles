@@ -194,6 +194,7 @@
         <!-- Dropdown menu for selecting dimensions -->
         <select id="dimensionSelect" class="dropdown-menu">
             <option value="">All</option>
+            <option value="Qualities" {% if selected_dimension == 'Qualities' %}selected{% endif %}>Qualities</option>
             <option value="Patterns in a Network">Patterns in a Network</option> <!-- New option added here -->
             <option value="Related to an Event Typology">Related to an Event Typology</option> <!-- New option added here -->
 
@@ -209,7 +210,28 @@
 
     <!-- Container for design principles -->
     <div class="principles-container" id="principles-container">
-        {% if selected_dimension %}
+        {% if quality_groups %}
+                {% for group in quality_groups %}
+                    <div class="row-container">
+                        <div class="row-title">{{ group.name }}</div>
+                        <div class="principles-row">
+                            {% for index in group.indices %}
+                                {% set row = data.loc[index] %}
+                                <div class="principle" id="principle{{ index }}" draggable="true" ondragstart="drag(event)">
+                                    <a href="{{ url_for('detail_2', index=index) }}" target="_blank">
+                                        <span class="index-number">{{ row['index'] }}</span>
+                                        <img src="{{ url_for('static', filename=row['picture_location']) }}" alt="Picture">
+                                        <div class="tooltip">
+                                            <p>{{ row['design_principle_name'] }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+
+        {% elif selected_dimension %}
                 {% for group in groups %}
                     <div class="row-container">
                         <div class="row-title">{{ data[selected_dimension].iloc[group[0]] }}</div>

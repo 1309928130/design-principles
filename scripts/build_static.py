@@ -143,6 +143,26 @@ def render_index_page(rows: list[dict], dimensions: list[str]) -> str:
         f'<option value="{escape(col)}">{escape(col)}</option>' for col in dimensions
     )
 
+    # Mapping from Fig. qualities diagram (design principle index → quality).
+    # Order matches the diagram top-to-bottom; principle 27 is not in the dataset.
+    qualities_json = json.dumps(
+        [
+            {"name": "Human-oriented", "indices": ["7", "27"]},
+            {
+                "name": "Reconfiguration",
+                "indices": ["11", "13", "14", "15", "16", "17", "18", "19", "26"],
+            },
+            {"name": "Scatteredness", "indices": ["2", "3", "4", "5"]},
+            {"name": "Event visibility", "indices": ["6", "24"]},
+            {
+                "name": "Connection",
+                "indices": ["8", "9", "10", "20", "21", "22", "23", "25"],
+            },
+            {"name": "Flexible use", "indices": ["1", "12"]},
+        ],
+        ensure_ascii=False,
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -256,6 +276,7 @@ def render_index_page(rows: list[dict], dimensions: list[str]) -> str:
     <span class="dropdown-label">Perspective ➭</span>
     <select id="dimensionSelect" class="dropdown-menu">
       <option value="">All</option>
+      <option value="Qualities">Qualities</option>
       <option value="Patterns in a Network">Patterns in a Network</option>
       <option value="Related to an Event Typology">Related to an Event Typology</option>
       {dimension_options}
@@ -266,8 +287,10 @@ def render_index_page(rows: list[dict], dimensions: list[str]) -> str:
   <template id="event-typology-template">{event_html}</template>
 
   <script id="principles-data" type="application/json">{data_json}</script>
+  <script id="qualities-data" type="application/json">{qualities_json}</script>
   <script>
     const {{ principles, dimensions }} = JSON.parse(document.getElementById('principles-data').textContent);
+    const qualityGroups = JSON.parse(document.getElementById('qualities-data').textContent);
 
     function principleCard(row) {{
       const idx = row._idx;
@@ -322,6 +345,21 @@ def render_index_page(rows: list[dict], dimensions: list[str]) -> str:
       container.innerHTML = html;
     }}
 
+    function renderQualities() {{
+      const container = document.getElementById('principles-container');
+      const byIndex = new Map(principles.map((row) => [String(row.index), row]));
+      container.innerHTML = qualityGroups.map((group) => {{
+        const rows = group.indices
+          .map((index) => byIndex.get(String(index)))
+          .filter(Boolean);
+        return `
+          <div class="row-container">
+            <div class="row-title">${{group.name}}</div>
+            <div class="principles-row">${{rows.map(principleCard).join('')}}</div>
+          </div>`;
+      }}).join('');
+    }}
+
     function renderPatterns() {{
       document.getElementById('principles-container').innerHTML = `
         <div class="special-content">
@@ -340,6 +378,7 @@ def render_index_page(rows: list[dict], dimensions: list[str]) -> str:
 
     function renderDimension(value) {{
       if (!value || value === 'All') return renderAll();
+      if (value === 'Qualities') return renderQualities();
       if (value === 'Patterns in a Network') return renderPatterns();
       if (value === 'Related to an Event Typology') return renderEventTypology();
       if (value === '(Other) Themes') return renderThemes();

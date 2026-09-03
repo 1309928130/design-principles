@@ -34,6 +34,16 @@ data1.sort_values(by='index', inplace=True)
 
 data = data1
 
+# Qualities mapping from thesis diagram (design principle index numbers)
+QUALITY_GROUPS = [
+    {"name": "Human-oriented", "indices": [7, 27]},
+    {"name": "Reconfiguration", "indices": [11, 13, 14, 15, 16, 17, 18, 19, 26]},
+    {"name": "Scatteredness", "indices": [2, 3, 4, 5]},
+    {"name": "Event visibility", "indices": [6, 24]},
+    {"name": "Connection", "indices": [8, 9, 10, 20, 21, 22, 23, 25]},
+    {"name": "Flexible use", "indices": [1, 12]},
+]
+
 
 @app.route('/post/<int:post_id>', methods=['GET', 'POST'])
 def post_detail(post_id):
@@ -52,9 +62,26 @@ def index():
     # Get the selected dimension from the query string
     selected_dimension = request.args.get('dimension')
 
+    if selected_dimension == 'Qualities':
+        quality_groups = []
+        for group in QUALITY_GROUPS:
+            # Map design-principle index numbers → dataframe row positions
+            row_indices = []
+            for principle_index in group["indices"]:
+                matches = data.index[data['index'] == principle_index].tolist()
+                row_indices.extend(matches)
+            quality_groups.append({"name": group["name"], "indices": row_indices})
+        return render_template(
+            'index_2.html',
+            data=data,
+            groups=[],
+            quality_groups=quality_groups,
+            selected_dimension='Qualities',
+        )
+
     if selected_dimension is None or selected_dimension not in data.columns:
         # If no dimension selected or invalid dimension, render the default view
-        return render_template('index_2.html', data=data, groups=[])
+        return render_template('index_2.html', data=data, groups=[], quality_groups=None)
 
     # Group the design principles based on the selected dimension
     groups = []
@@ -62,7 +89,13 @@ def index():
         group_indices = data[data[selected_dimension] == value].index.tolist()
         groups.append(group_indices)
 
-    return render_template('index_2.html', data=data, groups=groups, selected_dimension=selected_dimension)
+    return render_template(
+        'index_2.html',
+        data=data,
+        groups=groups,
+        quality_groups=None,
+        selected_dimension=selected_dimension,
+    )
 
 
 
